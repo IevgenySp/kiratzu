@@ -1,0 +1,30 @@
+@font-face {
+    font-family: "MuseoSansLight";
+    src: url("../../fonts/MuseoSansLight/MuseoSansLight.eot");
+    src: url("../../fonts/MuseoSansLight/MuseoSansLight.eot?#iefix") format("embedded-opentype"),
+    url("../../fonts/MuseoSansLight/MuseoSansLight.woff") format("woff"),
+    url("../../fonts/MuseoSansLight/MuseoSansLight.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+    /*background: #0e1932;*/
+}
+
+section#main, section#sub-section {
+    font-family: Roboto, sans-serif;
+}
+
+section#sub-section {
+    font-size: 14px;
+}
+
+div.csv-list {
+    width: 200px;
+}
+
+div.first-screen {
+    display: flex;
+}
+
