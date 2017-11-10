@@ -1,42 +1,38 @@
-const path = require('path');
-const webpack = require('webpack');
+var path = require('path');
+var webpack = require('webpack');
 
-const webpackConfig = require('./webpack.config');
-
-const {version, author, min} = require('./package.json');
-
-const banner = `/*
- * 2012-2017. All rights reserved.
- */
-/*!
- * Dashboard v${version}
- * ${author}
- */`;
-
-const basename = path.basename(min, '.min.js');
-
-module.exports = Object.assign({}, webpackConfig, {
-    entry: Object.assign({}, webpackConfig.entry, {
-        [`${basename}.min.js`]: './js/Kiratzu.js'
-    }),
-    devtool: 'cheap-module-source-map',
+module.exports = {
+    entry: [
+        './client/js'
+    ],
+    resolve: {
+        modulesDirectories: ['node_modules', 'client/js/src'],
+        extensions: ['', '.js', '.jsx']
+    },
+    output: {
+        path: path.join(__dirname, 'bin'),
+        filename: 'client.min.js',
+        publicPath: '/'
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loaders: ['babel']
+            }
+        ]
+    },
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: JSON.stringify('production')
+                NODE_ENV: '"production"'
             }
         }),
         new webpack.optimize.UglifyJsPlugin({
-            include: /\.min\.js/,
-            sourceMap: true,
-            mangle: {
-                keep_fnames: true
+            compress: {
+                warnings: false
             }
-        }),
-        new webpack.BannerPlugin({
-            banner,
-            raw: true,
-            entryOnly: true
         })
     ]
-});
+};

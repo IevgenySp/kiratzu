@@ -1,36 +1,33 @@
-const path = require('path');
-
-const {main} = require('./package.json');
-const basename = path.basename(main, '.js');
+var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
-    entry: {
-        [`${basename}.js`]: './js/Kiratzu.js'
+    entry: [
+        './client/js'
+    ],
+    resolve: {
+        modulesDirectories: ['node_modules', 'client/js/src'],
+        extensions: ['', '.js', '.jsx']
     },
     output: {
-        path: path.dirname(path.resolve(__dirname, main)),
-        filename: '[name]',
-        library: 'Kiratzu',
-        /*libraryTarget: 'umd'*/
-    },
-    devtool: 'source-map',
-    resolve: {
-        // Add '.es6' and '.jsx' as a resolvable extension.
-        extensions: [".es6", ".jsx", ".js"]
+        path: path.join(__dirname, 'bin'),
+        filename: 'client.js',
+        publicPath: '/'
     },
     module: {
-        rules: [
+        loaders: [
             {
                 test: /\.jsx?$/,
-                exclude: [/node_modules/],
-                loader: 'babel-loader',
-                query: {
-                    presets: ['es2015', 'react']
-                }
+                exclude: /node_modules/,
+                loaders: ['babel']
             }
         ]
     },
-    stats: {
-        colors: true
-    }
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: '"dev"'
+            }
+        })
+    ]
 };
