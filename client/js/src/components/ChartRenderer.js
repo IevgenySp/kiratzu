@@ -22,7 +22,7 @@ class ChartRenderer extends Component {
 
         let style = {
             width: this.props.width !== undefined ?
-                this.props.width + 'px' : 200 + 'px',
+                this.props.width + 'px' : 300 + 'px',
             height: this.props.height !== undefined ?
                 this.props.height + 'px' : 200 + 'px'
         };
@@ -40,7 +40,7 @@ ChartRenderer.propTypes = {
 };
 
 ChartRenderer.defaultProps = {
-    width: 200,
+    width: 300,
     height: 200,
     chart: {}
 };

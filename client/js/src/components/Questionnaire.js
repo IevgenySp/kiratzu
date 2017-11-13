@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import Link from 'react-router';
 import AutoComplete from 'material-ui/AutoComplete';
 import FlatButton from 'material-ui/FlatButton';
-import Application from './Application';
 
 class Questionnaire extends Component {
     updateInputNameValue(evt) {
@@ -31,9 +30,7 @@ class Questionnaire extends Component {
         this.listData = {};
 
         return (
-           <Application>
-            <div className="fullexpand">
-                <div className="questionnaire">
+            <div className="questionnaire">
                     <AutoComplete style={{width:'80%'}} className="question"
                                   hintText="Ask ..." dataSource={[]}/>
                     <List className="list">
@@ -73,13 +70,11 @@ class Questionnaire extends Component {
                         />
 
                     </List>
-                </div>
                 <FlatButton className="next" label="NEXT" primary={true} onClick={() => {
                         this.saveData.bind(this)();
                         this.props.ownProps.router.push('/file-upload')                 
                     }} />
             </div>
-           </Application>
         )
     }
 }

@@ -4,10 +4,35 @@ import { connect } from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
 import Paper from 'material-ui/Paper';
 import LinearProgress from 'material-ui/LinearProgress';
-import Application from './Application';
+
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import { shuffle } from 'lodash';
+
+const style = {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    padding: '10px',
+    margin: '0 10px 0 10px'
+};
+
+const factStyle = {
+    flex: 1,
+    padding: '15px',
+    margin: '10px'
+};
+
+const progressStyle = {
+    margin: '0',
+    width: '100%',
+    position: 'absolute',
+    top: 0,
+};
+
+const pageTytleStyle = {
+    fontFamily: "PT Sans Narrow"
+};
 
 class Facts extends Component {
     constructor(props) {
@@ -25,7 +50,7 @@ class Facts extends Component {
 
         return facts.slice(0, 3);
     }
-    
+
     componentDidMount() {
         //let intervalId = setInterval(this.forceUpdate.bind(this), 4000);
 
@@ -50,48 +75,31 @@ class Facts extends Component {
     }
 
     render() {
-        let style = {
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            padding: '10px',
-            margin: '0 10px 0 10px'
-        };
 
-        let factStyle = {
-            flex: 1,
-            padding: '5px',
-            margin: '10px'
-        };
-
-        let progressStyle = {
-            margin: '0 10px 0 10px',
-            width: 'auto'
-        };
-
-        let facts = this.getFacts().map(fact => {
-            return <Paper zDepth={1} rounded={false} key={fact.id} style={factStyle}><div>{fact.fact}</div></Paper>;
-        });
+        let facts = this.getFacts().map(fact => <Paper zDepth={1}
+                                                       rounded={false}
+                                                       key={fact.id}
+                                                       style={factStyle}>
+            <div>{fact.fact}</div>
+        </Paper>);
 
         return (
-            <Application>
-                <LinearProgress mode="determinate" value={this.state.completed} style={progressStyle} />
-                <div id='factsTitle'>Fun facts about you, your industry, your hobbies</div>
-                <ReactCSSTransitionGroup
-                    transitionName="answerSteps"
-                    transitionAppear={true}
-                    transitionAppearTimeout={500}
-                    transitionEnter={true}
-                    transitionEnterTimeout={500}
-                    transitionLeave={true}
-                    transitionLeaveTimeout={500}>
-                    <div style={style}>{facts}</div>
-                </ReactCSSTransitionGroup>
-                <FlatButton className="next" label="NEXT" primary={true} onClick={() =>
-                    this.props.ownProps.router.push('/answer-steps')} />
-                <FlatButton className="prev" label="PREVIOUS" primary={true} onClick={() =>
+            <div className="facts">
+                <LinearProgress className="upload-progress" mode="determinate"
+                                value={this.state.completed}
+                                style={progressStyle}/>
+                <div className='page-title' style={pageTytleStyle}>Fun facts
+                    about you, your industry, your
+                    hobbies
+                </div>
+                <div style={style}>{facts}</div>
+                <FlatButton className="next" label="NEXT" primary={true}
+                            onClick={() =>
+                    this.props.ownProps.router.push('/answer-steps')}/>
+                <FlatButton className="prev" label="PREVIOUS" primary={true}
+                            onClick={() =>
                     this.props.ownProps.router.push('/file-upload')}/>
-            </Application>
+            </div>
         )
     }
 }
