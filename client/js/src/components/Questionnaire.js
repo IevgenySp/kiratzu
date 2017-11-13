@@ -41,28 +41,28 @@ class Questionnaire extends Component {
                                   <ListItem className="list-item" key={1} primaryText="" disabled={true}
                                     onChange={this.updateInputNameValue.bind(this)}>
                                   <AutoComplete
-                                     hintText="Your Name"
+                                     floatingLabelText="Your Name"
                                      dataSource={[]}
                                    />
                                   </ListItem>,
                                    <ListItem className="list-item" key={2} primaryText="" disabled={true}
                                     onChange={this.updateInputJobValue.bind(this)}>
                                   <AutoComplete
-                                     hintText="What do you do?"
+                                     floatingLabelText="What do you do?"
                                      dataSource={[]}
                                    />
                                   </ListItem>,
                                     <ListItem className="list-item" key={3} primaryText="" disabled={true}
                                      onChange={this.updateInputIndustryValue.bind(this)}>
                                   <AutoComplete
-                                     hintText="Your Industry"
+                                     floatingLabelText="Your Industry"
                                      dataSource={[]}
                                    />
                                   </ListItem>,
                                     <ListItem className="list-item" key={4} primaryText="" disabled={true}
                                      onChange={this.updateInputHobbieValue.bind(this)}>
                                   <AutoComplete
-                                     hintText="Your hobbies"
+                                     floatingLabelText="Your hobbies"
                                      dataSource={[]}
                                    />
                                   </ListItem>
