@@ -87,9 +87,9 @@ class Facts extends Component {
                     transitionLeaveTimeout={500}>
                     <div style={style}>{facts}</div>
                 </ReactCSSTransitionGroup>
-                <FlatButton className="factsNext" label="NEXT" primary={true} onClick={() =>
+                <FlatButton className="next" label="NEXT" primary={true} onClick={() =>
                     this.props.ownProps.router.push('/answer-steps')} />
-                <FlatButton className="factsPrevious" label="PREVIOUS" primary={true} onClick={() => 
+                <FlatButton className="prev" label="PREVIOUS" primary={true} onClick={() =>
                     this.props.ownProps.router.push('/file-upload')}/>
             </Application>
         )

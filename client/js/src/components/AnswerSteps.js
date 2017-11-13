@@ -14,23 +14,29 @@ import Turn from './Turn';
 class AnswerSteps extends Component {
     render() {
         let turns = this.props.turns.map(turn => {
-            return <div key={turn.id}><Turn turn={turn} /></div>
+            return <div key={turn.id}><Turn turn={turn}/></div>
         });
 
         return (
             <Application>
-                <div id='answerStepsTitle'>The answer turn by turn:</div>
-                <ReactCSSTransitionGroup
-                    transitionName="answerSteps"
-                    transitionAppear={true}
-                    transitionAppearTimeout={500}
-                    transitionEnter={false}
-                    transitionLeave={false}>
-                {turns}
-                </ReactCSSTransitionGroup>
-                <FlatButton className="answerStepsPDF" label="Export to PDF" primary={true} />
-                <FlatButton className="answerStepsPrevious" label="PREVIOUS" primary={true} onClick={() =>
+                <div className="charts">
+                    <div id='answerStepsTitle'>The answer turn by turn:</div>
+                    <ReactCSSTransitionGroup
+                        transitionName="answerSteps"
+                        transitionAppear={true}
+                        transitionAppearTimeout={500}
+                        transitionEnter={false}
+                        transitionLeave={false}>
+                        {turns}
+                    </ReactCSSTransitionGroup>
+                    <FlatButton className="export-pdf" label="Export to PDF"
+                                primary={true}/>
+                    <FlatButton className="next" label="NEXT" primary={true}
+                                onClick={() => false}/>
+                    <FlatButton className="prev" label="PREVIOUS" primary={true}
+                                onClick={() =>
                     this.props.ownProps.router.push('/facts')}/>
+                </div>
             </Application>
         );
     }

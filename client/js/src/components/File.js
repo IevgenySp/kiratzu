@@ -34,9 +34,9 @@ class File extends Component {
                         </FlatButton>
                     </div>
                 </ReactCSSTransitionGroup>
-                <FlatButton className="fileUploadNext" label="NEXT" primary={true} onClick={() =>
+                <FlatButton className="next" label="NEXT" primary={true} onClick={() =>
                     this.props.ownProps.router.push('/facts')} />
-                <FlatButton className="fileUploadPrevious" label="PREVIOUS" primary={true} onClick={() => 
+                <FlatButton className="prev" label="PREVIOUS" primary={true} onClick={() =>
                     this.props.ownProps.router.push('/')}/>
             </Application>
         )
