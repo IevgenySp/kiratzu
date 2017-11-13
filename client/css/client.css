@@ -17,7 +17,7 @@ html, body {
 
 .application > div {
     min-height: 35vh;
-    width: 70vh;
+    width: 100vh;
     margin: 20px;
     transition: all 450ms;
     display: flex;
@@ -54,8 +54,27 @@ html, body {
     width:100%;
 }
 
-.next{
+.next {
     position: absolute !important;
     bottom:0;
     right:0;
+}
+
+.answerSteps-appear {
+    opacity: 0.01;
+}
+
+.answerSteps-appear.answerSteps-appear-active {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+}
+
+#answerStepsTitle, #factsTitle, #fileUploadTitle {
+    margin: 10px 0 0 30px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.answerStepsPDF, .factsNext, .fileUploadNext {
+    float: right;
 }

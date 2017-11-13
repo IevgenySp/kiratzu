@@ -6,8 +6,8 @@ module.exports = {
         './client/js'
     ],
     resolve: {
-        modulesDirectories: ['node_modules', 'client/js/src'],
-        extensions: ['', '.js', '.jsx']
+        //modulesDirectories: ['node_modules', 'client/js/src'],
+        extensions: ['.es6', '.js', '.jsx']
     },
     output: {
         path: path.join(__dirname, 'bin'),
@@ -15,11 +15,14 @@ module.exports = {
         publicPath: '/'
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loaders: ['babel']
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015', 'react']
+                }
             }
         ]
     },
