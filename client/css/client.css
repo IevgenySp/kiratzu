@@ -100,32 +100,37 @@ html, body {
 .turn-step {
     background: rgb(0, 188, 212);
     border-radius: 10px;
-    width:20px;
+    width: 20px;
     height: 20px;
 }
 
-.charts .turn{
+.charts .turn {
     border-top: 1px solid rgb(224, 224, 224);
 }
 
-.facts .upload-progress{
+.facts .upload-progress {
     position: absolute;
     top: 0;
 }
 
-.file-upload{
+.file-upload {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background: rgba(0,0,0,0.005);
+    background: rgba(0, 0, 0, 0.005);
     min-width: 350px;
 }
 
-.file-upload .file-name{
-    width:61%;
+.file-upload .file-name {
+    width: 61%;
     padding: 5px;
     box-shadow: inset 0px 3px 7px rgba(0, 0, 0, 0.21);
     display: flex;
     align-items: center;
 
+}
+
+.upload-progress {
+    background-color: rgb(244, 244, 244) !important;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.21);
 }

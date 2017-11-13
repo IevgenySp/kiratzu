@@ -17,7 +17,7 @@ const style = {
 };
 
 const circleStyle = {
-    background: '#03bcd4',
+    background: 'rgb(211, 211, 211)',
     height: 30,
     width: 30,
     margin: '0 10px 0 0',
