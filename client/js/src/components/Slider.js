@@ -86,6 +86,12 @@ class Slider extends Component {
         }
     }
 
+    componentWillUnmount() {
+        sliderContainer = Object.assign({}, sliderContainer);
+        sliderContainer.marginLeft = 0 + 'px';
+        this.setState({marginLeft: 0});
+    }
+
     render() {
 
         return (

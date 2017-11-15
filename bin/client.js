@@ -71702,6 +71702,13 @@ var Slider = function (_Component) {
             }
         }
     }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            sliderContainer = Object.assign({}, sliderContainer);
+            sliderContainer.marginLeft = 0 + 'px';
+            this.setState({ marginLeft: 0 });
+        }
+    }, {
         key: 'render',
         value: function render() {
             var _this2 = this;
