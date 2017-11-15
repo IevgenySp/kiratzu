@@ -12,6 +12,11 @@ server.dispatcher.set('views', __dirname + '/templates');
 
 server.addRout('GET', '/', 'index.pug');
 
+server.addRout('POST', '/upload-document', null, function(request,response){
+    response.writeHead(200, {'Content-Type': 'text/plain'})
+    response.end('Upload received');
+});
+
 server.addSources(__dirname, 'templates', '/templates');
 server.addSources(__dirname, '/bin');
 server.addSources(__dirname, '/client/css');

@@ -141,6 +141,7 @@ html, body {
 .upload-progress {
     background-color: rgb(244, 244, 244) !important;
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.21);
+    transition: opacity 1.5s;
 }
 
 .answerSlide {

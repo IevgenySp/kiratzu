@@ -37,10 +37,6 @@ const pageTytleStyle = {
 class Facts extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            completed: 0,
-        };
     }
 
     getFacts() {
@@ -49,29 +45,6 @@ class Facts extends Component {
         facts = shuffle(facts);
 
         return facts.slice(0, 3);
-    }
-
-    componentDidMount() {
-        //let intervalId = setInterval(this.forceUpdate.bind(this), 4000);
-
-        this.timer = setTimeout(() => this.progress(5), 1000);
-
-        //this.setState({intervalId: intervalId});
-    }
-
-    componentWillUnmount() {
-        //clearInterval(this.state.intervalId);
-        clearTimeout(this.timer);
-    }
-
-    progress(completed) {
-        if (completed > 100) {
-            this.setState({completed: 100});
-        } else {
-            this.setState({completed});
-            const diff = Math.random() * 10;
-            this.timer = setTimeout(() => this.progress(completed + diff), 1000);
-        }
     }
 
     render() {
@@ -83,10 +56,16 @@ class Facts extends Component {
             <div>{fact.fact}</div>
         </Paper>);
 
+        if (this.props.file.progress >= 100) {
+            progressStyle.opacity = 0;
+        } else {
+            progressStyle.opacity = 1;
+        }
+
         return (
             <div className="facts">
                 <LinearProgress className="upload-progress" mode="determinate"
-                                value={this.state.completed}
+                                value={this.props.file.progress}
                                 style={progressStyle}/>
                 <div className='page-title' style={pageTytleStyle}>Fun facts
                     about you, your industry, your
@@ -107,5 +86,6 @@ class Facts extends Component {
 export default connect((state, ownProps) => ({
     facts: state.facts,
     userData: state.questionnaire,
+    file: state.file,
     ownProps
 }))(Facts);
