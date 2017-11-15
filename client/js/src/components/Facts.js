@@ -95,7 +95,7 @@ class Facts extends Component {
                 <div style={style}>{facts}</div>
                 <FlatButton className="next" label="NEXT" primary={true}
                             onClick={() =>
-                    this.props.ownProps.router.push('/answer-steps')}/>
+                    this.props.ownProps.router.push('/answer')}/>
                 <FlatButton className="prev" label="PREVIOUS" primary={true}
                             onClick={() =>
                     this.props.ownProps.router.push('/file-upload')}/>

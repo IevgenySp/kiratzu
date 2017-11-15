@@ -13,6 +13,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import Questionnarie from './src/components/Questionnaire.js';
 import File from './src/components/File.js';
 import Facts from './src/components/Facts.js';
+import Answer from './src/components/Answer';
 import AnswerSteps from './src/components/AnswerSteps';
 import Application from './src/components/Application';
 
@@ -28,6 +29,7 @@ render(
                 <Route path="/questionnaire" component={Questionnarie}/>
                 <Route path="/file-upload" component={File}/>
                 <Route path="/facts" component={Facts}/>
+                <Route path="/answer" component={Answer}/>
                 <Route path="/answer-steps" component={AnswerSteps}/>
 
             </Router>

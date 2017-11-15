@@ -10,7 +10,7 @@ import FlatButton from 'material-ui/FlatButton';
 
 import Turn from './Turn';
 
-const pageTytleStyle = {
+const pageTitleStyle = {
     fontFamily:"PT Sans Narrow"
 };
 
@@ -20,7 +20,7 @@ class AnswerSteps extends Component {
 
         return (
             <div className="charts">
-                <div className='page-title' style={pageTytleStyle}>The answer turn by turn:</div>
+                <div className='page-title' style={pageTitleStyle}>The answer turn by turn:</div>
                 {turns}
                 <FlatButton className="export-pdf" label="Export to PDF"
                             primary={true}/>
@@ -28,7 +28,7 @@ class AnswerSteps extends Component {
                             onClick={() => false}/>
                 <FlatButton className="prev" label="PREVIOUS" primary={true}
                             onClick={() =>
-                    this.props.ownProps.router.push('/facts')}/>
+                    this.props.ownProps.router.push('/answer')}/>
             </div>
         );
     }

@@ -8,12 +8,25 @@ import PropTypes from 'prop-types';
 class ChartRenderer extends Component {
 
     buildChart(container) {
-        const chart = echarts.init(container);
-        chart.setOption(this.props.chart);
+        this.chart = echarts.init(container);
+        this.chart.setOption(this.props.chart);
+    }
+
+    updateChart() {
+        this.chart.clear();
+        this.chart.setOption(this.props.chart);
     }
 
     componentDidMount() {
         this.buildChart(this.container);
+    }
+
+    componentDidUpdate() {
+        this.updateChart(this.container);
+    }
+
+    shouldComponentUpdate(nextProps) {
+        return nextProps.chart !== this.props.chart;
     }
 
     render() {

@@ -76,6 +76,7 @@ html, body {
 .charts {
     padding-bottom: 30px;
     padding-top: 45px;
+    width: 100%;
 }
 
 .answerSteps-appear {
@@ -94,6 +95,13 @@ html, body {
     position: absolute;
     top: 0;
     left: 0;
+    font-size: 22px;
+}
+
+.title {
+    padding: 10px 0 10px 0;
+    margin: 0 0 0 10px;
+    font-weight: bold;
     font-size: 22px;
 }
 
@@ -133,4 +141,12 @@ html, body {
 .upload-progress {
     background-color: rgb(244, 244, 244) !important;
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.21);
+}
+
+.answerSlide {
+    border: 2px solid transparent;
+}
+
+.answerSlide:hover {
+    border: 2px solid #4CAF50;
 }
