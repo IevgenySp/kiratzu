@@ -21,6 +21,10 @@ class Questionnaire extends Component {
         this.listData.hobbie = evt.target.value;
     }
 
+    updateDomainValue(domain){
+        this.listData.domain = domain;
+    }
+
     saveData() {
         this.props.onSaveQuestionnarie(this.listData);
     }
@@ -32,7 +36,9 @@ class Questionnaire extends Component {
         return (
             <div className="questionnaire">
                     <AutoComplete style={{width:'80%'}} className="question"
-                                  hintText="Ask ..." dataSource={[]}/>
+                                  hintText="Ask ..." dataSource={[]}
+                                  onUpdateInput={this.updateDomainValue.bind(this)}/>
+
                     <List className="list">
                         <ListItem primaryText="What is this data?"
                                   primaryTogglesNestedList={false}

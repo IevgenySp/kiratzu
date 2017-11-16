@@ -37,6 +37,23 @@ const pageTytleStyle = {
 class Facts extends Component {
     constructor(props) {
         super(props);
+
+        this.websocketListener = this.websocketListener.bind(this);
+
+        this.props.websocket.addEventListener('message', this.websocketListener);
+    }
+
+    websocketListener(message) {
+        let response = JSON.parse(message.data);
+
+        if (response.message === 'ADD_FACTS') {
+            let facts = response.facts;
+            facts.forEach((f)=>this.props.onAddFact(f));
+        }
+    }
+
+    componentWillUnmount() {
+        this.props.websocket.removeEventListener('message', this.websocketListener)
     }
 
     getFacts() {
@@ -84,8 +101,14 @@ class Facts extends Component {
 }
 
 export default connect((state, ownProps) => ({
-    facts: state.facts,
-    userData: state.questionnaire,
-    file: state.file,
-    ownProps
-}))(Facts);
+        facts: state.facts,
+        userData: state.questionnaire,
+        file: state.file,
+        websocket: state.websocket,
+        ownProps
+    }),
+    dispatch => ({
+        onAddFact: (data) => {
+            dispatch({type: 'ADD_FACT', payload: data});
+        }
+    }))(Facts);

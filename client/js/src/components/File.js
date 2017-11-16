@@ -24,26 +24,30 @@ class File extends Component {
     setFile(el) {
         let _this = this;
         const file = this.fileInput.files[0];
-        const value = this.fileInput.value;
-        const fileName = value.split('\\').slice(-1);
 
-        this.fileContainer.innerText = fileName;
+        this.fileContainer.innerText = file.name;
+
+        let form = new FormData(this.formData);
 
         let request = new XMLHttpRequest();
-        request.open("POST", '/upload-file', true);
+        request.open("POST", '/api/v1/documents', true);
 
         _this.props.onFileUpload({
-            file: fileName,
+            file: file.name,
             progress: 0
         });
 
         request.upload.onprogress = function(e) {
+            const progress =  e.loaded / e.total * 100;
             _this.props.onFileUpload({
-                file: fileName,
-                progress: e.loaded / e.total * 100
+                file: file.name,
+                progress: progress
             });
         };
-        request.send(file);
+
+        _this.props.onResetFacts({});
+        this.props.websocket.send(JSON.stringify({message: 'GET_FACTS'}));
+        request.send(form);
         this.props.ownProps.router.push('/facts')
     }
 
@@ -75,9 +79,18 @@ class File extends Component {
                                     containerElement='label' // <-- Just add me!
                                     label='Choose File'>
                         </FlatButton>
-                        <input ref={(el)=>{this.fileInput = el}}
-                               onChange={this.setFile.bind(this)}
-                               style={{display:"none"}} type="file"/>
+                        <form ref={(el)=>{this.formData = el}}
+                              onChange={this.setFile.bind(this)}
+                              style={{display:"none"}}
+                              encType="multipart/form-data">
+                            <input id="domain" type="text" name="domain" defaultValue={this.props.questionnaire.domain}/>
+                            <input ref={(el)=>{this.fileInput = el}}
+                                   id="file"
+                                   type="file"
+                                   name="file"
+                                   accept="text/csv"
+                            />
+                         </form>
                     </div>
 
                 </div>
@@ -93,11 +106,16 @@ class File extends Component {
 }
 
 export default connect((state, ownProps) => ({
+        questionnaire: state.questionnaire,
         file: state.file,
+        websocket: state.websocket,
         ownProps
     }),
     dispatch => ({
         onFileUpload: (data) => {
             dispatch({type: 'FILE_UPLOAD', payload: data});
+        },
+        onResetFacts: (data) => {
+            dispatch({type: 'RESET_FACTS', payload: []});
         }
     }))(File);
