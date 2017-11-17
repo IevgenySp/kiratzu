@@ -1,16 +1,14 @@
-var WebSocketServer = new require('ws');
+var enableWS = new require('express-ws');
 
-var Server = function(port) {
+var Server = function(server, path) {
     var _this = this;
     this.clients = {};
 
     this.events = {};
 
-    this.dispatcher = new WebSocketServer.Server({
-        port: port
-    });
+    enableWS(server);
 
-    this.dispatcher.on('connection', function(ws) {
+    server.ws(`${path}`, function(ws, req) {
         var id = Math.random();
         _this.clients[id] = ws;
         ws._events = {};

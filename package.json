@@ -29,6 +29,7 @@
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.7",
     "express": "^4.13.3",
+    "express-ws": "^3.0.0",
     "history": "^1.17.0",
     "immutable": "^3.7.6",
     "material-ui": "^0.19.4",

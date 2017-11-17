@@ -38,7 +38,7 @@ class File extends Component {
         });
 
         request.upload.onprogress = function(e) {
-            const progress =  e.loaded / e.total * 100;
+            const progress = e.loaded / e.total * 100;
             _this.props.onFileUpload({
                 file: file.name,
                 progress: progress
@@ -46,19 +46,14 @@ class File extends Component {
         };
 
         _this.props.onResetFacts({});
-        this.props.websocket.send(JSON.stringify({message: 'GET_FACTS'}));
+        this.props.socket.send({message: 'GET_FACTS'});
         request.send(form);
         this.props.ownProps.router.push('/facts')
     }
 
-
     render() {
 
-        let fileName;
-
-        if (this.props.file.file) {
-            fileName = this.props.file.file
-        }
+        let fileName = this.props.file.file ? this.props.file.file : '';
 
         return (
             <div>
@@ -83,14 +78,15 @@ class File extends Component {
                               onChange={this.setFile.bind(this)}
                               style={{display:"none"}}
                               encType="multipart/form-data">
-                            <input id="domain" type="text" name="domain" defaultValue={this.props.questionnaire.domain}/>
+                            <input id="domain" type="text" name="domain"
+                                   defaultValue={this.props.questionnaire.domain}/>
                             <input ref={(el)=>{this.fileInput = el}}
                                    id="file"
                                    type="file"
                                    name="file"
                                    accept="text/csv"
                             />
-                         </form>
+                        </form>
                     </div>
 
                 </div>
@@ -108,7 +104,7 @@ class File extends Component {
 export default connect((state, ownProps) => ({
         questionnaire: state.questionnaire,
         file: state.file,
-        websocket: state.websocket,
+        socket: state.socket,
         ownProps
     }),
     dispatch => ({

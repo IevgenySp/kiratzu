@@ -1,9 +1,9 @@
-var Server = new require('./server/server.js');
-var WebSocketServer = new require('./server/webSocketServer.js');
+var Server = require('./server/server.js');
+var WebSocketServer = require('./server/webSocketServer.js');
 var port = 8000;
-var wsPort = 8001;
+var wsPath = '/websocket';
 var server = new Server(port);
-var wsServer = new WebSocketServer(wsPort);
+var wsServer = new WebSocketServer(server.dispatcher, wsPath);
 var fs = require('fs');
 var pug = require('pug');
 

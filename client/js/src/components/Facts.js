@@ -38,46 +38,22 @@ class Facts extends Component {
     constructor(props) {
         super(props);
 
-        this.websocketListener = this.websocketListener.bind(this);
-
-        this.props.websocket.addEventListener('message', this.websocketListener);
-    }
-
-    websocketListener(message) {
-        let response = JSON.parse(message.data);
-
-        if (response.message === 'ADD_FACTS') {
-            let facts = response.facts;
-            facts.forEach((f)=>this.props.onAddFact(f));
-        }
-    }
-
-    componentWillUnmount() {
-        this.props.websocket.removeEventListener('message', this.websocketListener)
-    }
-
-    getFacts() {
-        let facts = this.props.facts;
-
-        facts = shuffle(facts);
-
-        return facts.slice(0, 3);
+        this.props.socket.once('message', function(response) {
+            let data = JSON.parse(response.data);
+            if (data.message === 'ADD_FACTS') {
+                data.facts.forEach((f)=>this.props.onAddFact(f));
+            }
+        }.bind(this), 'facts');
     }
 
     render() {
 
-        let facts = this.getFacts().map(fact => <Paper zDepth={1}
-                                                       rounded={false}
-                                                       key={fact.id}
-                                                       style={factStyle}>
-            <div>{fact.fact}</div>
-        </Paper>);
+        const facts = this.props.facts.slice(0, 3).map(fact =>
+            <Paper zDepth={1} rounded={false} key={fact.id} style={factStyle}>
+                <div>{fact.fact}</div>
+            </Paper>);
 
-        if (this.props.file.progress >= 100) {
-            progressStyle.opacity = 0;
-        } else {
-            progressStyle.opacity = 1;
-        }
+        progressStyle.opacity = this.props.file.progress >= 100 ? 0 : 1;
 
         return (
             <div className="facts">
@@ -104,7 +80,7 @@ export default connect((state, ownProps) => ({
         facts: state.facts,
         userData: state.questionnaire,
         file: state.file,
-        websocket: state.websocket,
+        socket: state.socket,
         ownProps
     }),
     dispatch => ({

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { connect } from 'react-redux';
 
 const style = {
     color: "rgba(0, 0, 0, 0.70)"
@@ -30,4 +31,4 @@ class Application extends Component {
     }
 }
 
-export default Application;
+export default Application
