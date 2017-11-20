@@ -16,6 +16,7 @@ import Facts from './src/components/Facts.js';
 import Answer from './src/components/Answer';
 import AnswerSteps from './src/components/AnswerSteps';
 import Application from './src/components/Application';
+import LoginPage from './src/components/LoginPage';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 const history = syncHistoryWithStore(hashHistory, store);
@@ -31,6 +32,7 @@ render(
                 <Route path="/facts" component={Facts}/>
                 <Route path="/answer" component={Answer}/>
                 <Route path="/answer-steps" component={AnswerSteps}/>
+                <Route path="/login" component={LoginPage}/>
 
             </Router>
         </Application>

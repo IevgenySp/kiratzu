@@ -16,6 +16,11 @@ server.addRout('POST', '/upload-document', null, function(request, response) {
     response.end('Upload received');
 });
 
+server.addRout('POST', '/api/auth', null, function(request, response) {
+    response.writeHead(200, {'Content-Type': 'text/plain'});
+    response.end(response.body);
+});
+
 server.addSources(__dirname, 'templates', '/templates');
 server.addSources(__dirname, '/bin');
 server.addSources(__dirname, '/client/css');
