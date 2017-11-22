@@ -7,6 +7,12 @@ import Link from 'react-router';
 import AutoComplete from 'material-ui/AutoComplete';
 import FlatButton from 'material-ui/FlatButton';
 
+const loginStyle = {
+    position: 'absolute',
+    top: 0,
+    right: 0
+};
+
 class Questionnaire extends Component {
     updateInputNameValue(evt) {
         this.listData.name = evt.target.value;
@@ -35,6 +41,14 @@ class Questionnaire extends Component {
 
         return (
             <div className="questionnaire">
+                <FlatButton
+                    className="login"
+                    label="Login"
+                    primary={true}
+                    style={loginStyle}
+                    onClick={() =>
+                            this.props.ownProps.router.push('/login')}
+                />
                     <AutoComplete style={{width:'80%'}} className="question"
                                   hintText="Ask ..." dataSource={[]}
                                   onUpdateInput={this.updateDomainValue.bind(this)}/>

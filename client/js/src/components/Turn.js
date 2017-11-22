@@ -8,6 +8,9 @@ import PropTypes from 'prop-types';
 import ChartRenderer from './ChartRenderer';
 import Paper from 'material-ui/Paper';
 
+import LabeledText from './LabeledText';
+import LayoutManager from './LayoutManager';
+
 const style = {
     display: 'flex',
     flexDirection: 'row',
@@ -29,13 +32,31 @@ const circleStyle = {
 
 class Turn extends Component {
     render() {
+        let text;
+        let layoutManager = [];
+        let layout = this.props.layout || [2, 2];
+
+        if (!this.props.turn.facts) {
+            text = this.props.turn.text;
+            layoutManager = this.props.turn.text;
+        } else {
+            text = this.props.turn.facts.map(fact => {
+                return (<div key={fact.id}><LabeledText
+                    category={fact.category}
+                    mainText={fact.mainText || null}
+                    text={fact.text} /></div>);
+            });
+            layoutManager =
+                <LayoutManager layout={layout} orientation="rows" items={text} />
+        }
 
         return (
             <div className='turn' style={style} key={this.props.turn.id}>
                     <Paper style={circleStyle} zDepth={0} circle={true}>
                         <div id='number'>{this.props.turn.id}</div>
                     </Paper>
-                    <div style={{flex:1, width:'calc(100% - 300px)'}} id='text'>{this.props.turn.text}</div>
+                    <div style={{flex:1, width:'calc(100% - 300px)'}}
+                         id='text'>{layoutManager}</div>
                     <ChartRenderer chart={this.props.turn.data}/>
             </div>
         );
@@ -43,11 +64,13 @@ class Turn extends Component {
 }
 
 ChartRenderer.propTypes = {
-    turn: PropTypes.object
+    turn: PropTypes.object,
+    layout: PropTypes.array
 };
 
 ChartRenderer.defaultProps = {
-    turn: {}
+    turn: {},
+    layout: [2, 2]
 };
 
 export default Turn;
