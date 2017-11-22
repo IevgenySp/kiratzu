@@ -9,7 +9,6 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import FlatButton from 'material-ui/FlatButton';
 
 import ChartRenderer from './ChartRenderer';
-import ChartSwitcher from './ChartSwitcher';
 import Slider from './Slider';
 import LabeledText from './LabeledText';
 import LayoutManager from './LayoutManager';
