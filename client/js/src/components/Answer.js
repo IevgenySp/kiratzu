@@ -9,7 +9,10 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import FlatButton from 'material-ui/FlatButton';
 
 import ChartRenderer from './ChartRenderer';
+import ChartSwitcher from './ChartSwitcher';
 import Slider from './Slider';
+import LabeledText from './LabeledText';
+import LayoutManager from './LayoutManager';
 
 const pageTitleStyle = {
     fontFamily:"PT Sans Narrow"
@@ -80,13 +83,22 @@ class AnswerSteps extends Component {
                 height={chartSliderHeight}/>
             </div>);
         const slides = this.props.charts.length;
+        const facts =
+            this.props.charts[this.state.selectedSlideId - 1].facts.map(fact => {
+            return (<div key={fact.id}><LabeledText
+                category={fact.category}
+                mainText={fact.mainText || null}
+                text={fact.text} /></div>);
+        });
+        const layoutManager =
+            <LayoutManager layout={[2,2]} orientation="rows" items={facts} />;
 
         return (
             <div style = {chart}>
                 <div style={headerStyle}>
                     <div style={{flex: 1}}>
                         <div className='title' style={pageTitleStyle}>The answer:</div>
-                        <div>{this.props.charts[this.state.selectedSlideId - 1].text}</div>
+                        <div>{layoutManager}</div>
                     </div>
                     <div style={{flex: 1}}>
                         <ChartRenderer
@@ -98,8 +110,8 @@ class AnswerSteps extends Component {
                 <div style={sliderStyle}><Slider
                     width={782} 
                     slideWidth={chartSliderWidth}
-                    slides={slides*2} 
-                    margin={slidesMargin}>{charts}{charts}
+                    slides={slides}
+                    margin={slidesMargin}>{charts}
                 </Slider></div>
                 <div>
                     <div style={footerStyle}>

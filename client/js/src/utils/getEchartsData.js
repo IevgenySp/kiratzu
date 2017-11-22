@@ -7,7 +7,15 @@ import flattenDeep from 'lodash/flattenDeep';
 
 export function getEchartsBarsParams(eInstance) {
     let paramsArr = [];
-    let shapes = eInstance._chartsViews[0]._data._itemLayouts;
+    let shapes = [];
+
+    eInstance._chartsViews.forEach(group => {
+        group._data._itemLayouts.forEach(item => {
+            item.color =  group._data._visual.color;
+        });
+
+        shapes = shapes.concat(group._data._itemLayouts);
+    });
 
     forEach(shapes, function(obj, index) {
         let params = {};
@@ -24,7 +32,8 @@ export function getEchartsBarsParams(eInstance) {
         };
         params.style = {
             isFill: true,
-            color: '#f78518'
+            //color: '#f78518'
+            color: obj.color
         };
 
         paramsArr.push(params);
@@ -35,7 +44,15 @@ export function getEchartsBarsParams(eInstance) {
 
 export function getEchartsPointsParams(eInstance) {
     let paramsArr = [];
-    let shapes = eInstance._chartsViews[0]._data._itemLayouts;
+    let shapes = [];
+
+    eInstance._chartsViews.forEach(group => {
+        group._data._itemLayouts.forEach(item => {
+            item.color =  group._data._visual.color;
+        });
+
+        shapes = shapes.concat(group._data._itemLayouts);
+    });
 
     forEach(shapes, function(obj, index) {
         let params = {};
@@ -53,7 +70,8 @@ export function getEchartsPointsParams(eInstance) {
             };
             params.style = {
                 isFill: true,
-                color: '#1e88e5'
+                //color: '#1e88e5'
+                color: obj.color
             };
 
             paramsArr.push(params);

@@ -45,28 +45,56 @@ const initialState = [
                     name:'邮件营销',
                     type:'line',
                     stack: '总量',
-                    areaStyle: {normal: {}},
+                    areaStyle: {normal: {
+                        color: '#cdd422'
+                    }},
+                    itemStyle: {
+                        normal: {
+                            color: '#cdd422'
+                        }
+                    },
                     data:[120, 132, 101, 134, 90, 230, 210]
                 },
                 {
                     name:'联盟广告',
                     type:'line',
                     stack: '总量',
-                    areaStyle: {normal: {}},
+                    areaStyle: {normal: {
+                        color: '#e05915'
+                    }},
+                    itemStyle: {
+                        normal: {
+                            color: '#e05915'
+                        }
+                    },
                     data:[220, 182, 191, 234, 290, 330, 310]
                 },
                 {
                     name:'视频广告',
                     type:'line',
                     stack: '总量',
-                    areaStyle: {normal: {}},
+                    areaStyle: {normal: {
+                        color: '#431c5d'
+                    }},
+                    itemStyle: {
+                        normal: {
+                            color: '#431c5d'
+                        }
+                    },
                     data:[150, 232, 201, 154, 190, 330, 410]
                 },
                 {
                     name:'直接访问',
                     type:'line',
                     stack: '总量',
-                    areaStyle: {normal: {}},
+                    areaStyle: {normal: {
+                        color: '#e6e9f0'
+                    }},
+                    itemStyle: {
+                        normal: {
+                            color: '#e6e9f0'
+                        }
+                    },
                     data:[320, 332, 301, 334, 390, 330, 320]
                 },
                 {
@@ -79,14 +107,47 @@ const initialState = [
                             position: 'top'
                         }
                     },
-                    areaStyle: {normal: {}},
+                    areaStyle: {normal: {
+                        color: '#c2dde6'
+                    }},
+                    itemStyle: {
+                        normal: {
+                            color: '#c2dde6'
+                        }
+                    },
                     data:[820, 932, 901, 934, 1290, 1330, 1320]
                 }
             ]
         },
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        facts: [
+            {
+                id: 1,
+                category: 'numeric',
+                mainText: '36%',
+                text: 'of men run a half marathon faster than 1:45'
+            },
+            {
+                id: 2,
+                category: 'numeric',
+                mainText: '11%',
+                text: 'of women complete a half marathon in under 1:45'
+            },
+            {
+                id: 3,
+                category: 'numeric',
+                mainText: '1/3',
+                text: 'of men run a half marathon in 2:00 or slower'
+            },
+            {
+                id: 4,
+                category: 'numeric',
+                mainText: '2/3',
+                text: 'of women run the half marathon in 2:00 or slower'
+            }
+        ]
     },
-    /*{
+    {
         id: 2,
         data: {
             title: {
@@ -133,6 +194,11 @@ const initialState = [
                     type:'scatter',
                     large: true,
                     symbolSize: 3,
+                    itemStyle: {
+                        normal: {
+                            color: '#bccbde'
+                        }
+                    },
                     data: (function () {
                         var d = [];
                         var len = 10000;
@@ -154,6 +220,11 @@ const initialState = [
                     type:'scatter',
                     large: true,
                     symbolSize: 2,
+                    itemStyle: {
+                        normal: {
+                            color: '#431c5d'
+                        }
+                    },
                     data: (function () {
                         var d = [];
                         var len = 20000;
@@ -172,10 +243,134 @@ const initialState = [
                 }
             ]
         },
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    },*/
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        facts: [
+            {
+                id: 1,
+                category: 'time',
+                text: 'Runners with faster half marathons times run more miles each week'
+            },
+            {
+                id: 2,
+                category: 'time',
+                text: 'All runners regardless of their half marathon time, run, on average, 5-6 miles per run'
+            },
+            {
+                id: 3,
+                category: 'woman',
+                text: 'Female athletes run more miles per week than males'
+            }
+        ]
+    },
     {
-        id: 2,
+        id: 3,
+        data: {
+            title: {
+                text: ''
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data:[]
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                top: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['Week 7','Week 6','Week 5','Week 4','Week 3','Week 2','Week 1']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name:'邮件营销',
+                    type:'line',
+                    stack: '总量',
+                    itemStyle: {
+                        normal: {
+                            color: '#cdd422'
+                        }
+                    },
+                    data:[120, 132, 101, 134, 90, 230, 210]
+                },
+                {
+                    name:'联盟广告',
+                    type:'line',
+                    stack: '总量',
+                    itemStyle: {
+                        normal: {
+                            color: '#e05915'
+                        }
+                    },
+                    data:[220, 182, 191, 234, 290, 330, 310]
+                },
+                {
+                    name:'视频广告',
+                    type:'line',
+                    stack: '总量',
+                    itemStyle: {
+                        normal: {
+                            color: '#431c5d'
+                        }
+                    },
+                    data:[150, 232, 201, 154, 190, 330, 410]
+                },
+                {
+                    name:'直接访问',
+                    type:'line',
+                    stack: '总量',
+                    itemStyle: {
+                        normal: {
+                            color: '#c2dde6'
+                        }
+                    },
+                    data:[320, 332, 301, 334, 390, 330, 320]
+                },
+                {
+                    name:'搜索引擎',
+                    type:'line',
+                    stack: '总量',
+                    itemStyle: {
+                        normal: {
+                            color: '#bccbde'
+                        }
+                    },
+                    data:[820, 932, 901, 934, 1290, 1330, 1320]
+                }
+            ]
+        },
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        facts: [
+            {
+                id: 1,
+                category: 'numeric',
+                mainText: '20%',
+                text: 'of weekly mileage is spent on runs of 10 miles or more'
+            },
+            {
+                id: 2,
+                category: 'numeric',
+                mainText: '5-10',
+                text: 'miles zone is were faster marathon runners do the bulk of their training runs'
+            },
+            {
+                id: 3,
+                category: 'numeric',
+                mainText: '4+',
+                text: 'hour finishers do roughly half their mileage in runs of less than 5 miles'
+            }
+        ]
+    },
+    /*{
+        id: 4,
         data: {
             tooltip : {
                 trigger: 'axis',
@@ -211,6 +406,11 @@ const initialState = [
                             position: 'insideRight'
                         }
                     },
+                    itemStyle: {
+                        normal: {
+                            color: '#cdd422'
+                        }
+                    },
                     data: [320, 302, 301, 334, 390, 330, 320]
                 },
                 {
@@ -221,6 +421,11 @@ const initialState = [
                         normal: {
                             show: true,
                             position: 'insideRight'
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: '#e05915'
                         }
                     },
                     data: [120, 132, 101, 134, 90, 230, 210]
@@ -235,6 +440,11 @@ const initialState = [
                             position: 'insideRight'
                         }
                     },
+                    itemStyle: {
+                        normal: {
+                            color: '#431c5d'
+                        }
+                    },
                     data: [220, 182, 191, 234, 290, 330, 310]
                 },
                 {
@@ -245,6 +455,11 @@ const initialState = [
                         normal: {
                             show: true,
                             position: 'insideRight'
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: '#c2dde6'
                         }
                     },
                     data: [150, 212, 201, 154, 190, 330, 410]
@@ -259,6 +474,11 @@ const initialState = [
                             position: 'insideRight'
                         }
                     },
+                    itemStyle: {
+                        normal: {
+                            color: '#bccbde'
+                        }
+                    },
                     data: [820, 832, 901, 934, 1290, 1330, 1320]
                 }
             ]
@@ -266,7 +486,7 @@ const initialState = [
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },
     {
-        id: 3,
+        id: 5,
         data: {
             angleAxis: {
                 type: 'category',
@@ -279,18 +499,33 @@ const initialState = [
             },
             series: [{
                 type: 'bar',
+                itemStyle: {
+                    normal: {
+                        color: '#cdd422'
+                    }
+                },
                 data: [1, 2, 3, 4, 3, 5, 1],
                 coordinateSystem: 'polar',
                 name: 'A',
                 stack: 'a'
             }, {
                 type: 'bar',
+                itemStyle: {
+                    normal: {
+                        color: '#e05915'
+                    }
+                },
                 data: [2, 4, 6, 1, 3, 2, 1],
                 coordinateSystem: 'polar',
                 name: 'B',
                 stack: 'a'
             }, {
                 type: 'bar',
+                itemStyle: {
+                    normal: {
+                        color: '#431c5d'
+                    }
+                },
                 data: [1, 2, 3, 4, 1, 2, 5],
                 coordinateSystem: 'polar',
                 name: 'C',
@@ -298,7 +533,7 @@ const initialState = [
             }]
         },
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    }
+    }*/
 ];
 
 export default function turnsList(state = initialState, action) {

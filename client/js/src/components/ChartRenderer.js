@@ -5,6 +5,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import {
+    getEchartsBarsParams,
+    getEchartsPointsParams
+} from '../utils/getEchartsData';
+
 class ChartRenderer extends Component {
 
     buildChart(container) {
@@ -16,6 +21,34 @@ class ChartRenderer extends Component {
         this.chart.clear();
         this.chart.setOption(this.props.chart);
     }
+
+    getEchartParams() {
+        let chartType = this.chart.getOption().series[0].type;
+        let shapes;
+
+        switch(chartType) {
+            case 'bar':
+                shapes = getEchartsBarsParams(this.chart);
+                break;
+            case 'line':
+                shapes = getEchartsPointsParams(this.chart);
+                break;
+        }
+
+        return shapes;
+    }
+
+    getShapeGeometry(shapeType, shapesArr) {
+        let shapeGeometry = [];
+
+        shapesArr.forEach(shape => {
+            shapeGeometry.push(
+                this.fluidCanvas.shape(shapeType, shape));
+        });
+
+        return shapeGeometry;
+}
+
 
     componentDidMount() {
         this.buildChart(this.container);

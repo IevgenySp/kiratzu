@@ -16,7 +16,9 @@ const pageTitleStyle = {
 
 class AnswerSteps extends Component {
     render() {
-        const turns = this.props.turns.map(turn => <div key={turn.id}><Turn turn={turn}/></div>);
+        const layouts = [[2,2], [1,4], [1,3]]; //Items layouts for layout amager
+        const turns = this.props.turns.map((turn, index) =>
+            <div key={turn.id}><Turn turn={turn} layout={layouts[index]}/></div>);
 
         return (
             <div className="charts">
