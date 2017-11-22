@@ -19,6 +19,7 @@ server.addRout('POST', '/upload-document', null, function(request, response) {
 server.addSources(__dirname, 'templates', '/templates');
 server.addSources(__dirname, '/bin');
 server.addSources(__dirname, '/client/css');
+server.addSources(__dirname, '/client');
 
 var facts = [
     {
