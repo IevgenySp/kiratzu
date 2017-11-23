@@ -5,8 +5,9 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 
 const style = {
-    color: "rgba(0, 0, 0, 0.70)"
-}
+    color: "rgba(0, 0, 0, 0.70)",
+    overflow: 'hidden'
+};
 
 class Application extends Component {
 
