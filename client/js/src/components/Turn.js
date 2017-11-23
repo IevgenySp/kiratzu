@@ -27,7 +27,8 @@ const circleStyle = {
     textAlign: 'center',
     display: 'inline-block',
     lineHeight: '30px',
-    color: '#fff'
+    color: '#fff',
+    fontFamily:"PT Sans Narrow"
 };
 
 class Turn extends Component {
