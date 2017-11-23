@@ -149,7 +149,7 @@ html, body {
 }
 
 .answerSlide:hover {
-    border: 2px solid #4CAF50;
+    border: 2px solid rgba(76, 175, 80, 0.5);
 }
 
 canvas{
@@ -170,4 +170,9 @@ canvas{
 .factText {
     font-family: "PT Sans Narrow";
     font-size: 18px;
+}
+
+.leftButton>button,
+.rightButton>button{
+
 }

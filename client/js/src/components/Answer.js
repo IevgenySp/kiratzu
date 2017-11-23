@@ -29,7 +29,7 @@ const chartStyle = {
 
 const chartSelectedStyle = {
     margin: '10px',
-    border: '2px solid #4CAF50'
+    border: '2px solid rgba(76,175, 80, 0.5)'
 };
 
 const sliderStyle = {
