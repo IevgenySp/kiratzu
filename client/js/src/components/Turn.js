@@ -27,28 +27,25 @@ const circleStyle = {
     textAlign: 'center',
     display: 'inline-block',
     lineHeight: '30px',
-    color: '#fff'
+    color: '#fff',
+    fontFamily:"PT Sans Narrow"
 };
 
 class Turn extends Component {
     render() {
         let text;
-        let layoutManager = [];
+        let layoutManager;
         let layout = this.props.layout || [2, 2];
 
-        if (!this.props.turn.facts) {
-            text = this.props.turn.text;
-            layoutManager = this.props.turn.text;
-        } else {
-            text = this.props.turn.facts.map(fact => {
-                return (<div key={fact.id}><LabeledText
-                    category={fact.category}
-                    mainText={fact.mainText || null}
-                    text={fact.text} /></div>);
-            });
-            layoutManager =
-                <LayoutManager layout={layout} orientation="rows" items={text} />
-        }
+        text = this.props.turn.facts.map(fact => {
+            return (<div key={fact.id}><LabeledText
+                category={fact.category}
+                mainText={fact.mainText || null}
+                text={fact.text} /></div>);
+        });
+
+        layoutManager =
+                <LayoutManager layout={layout} orientation="rows" items={text} />;
 
         return (
             <div className='turn' style={style} key={this.props.turn.id}>

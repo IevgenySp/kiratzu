@@ -9,14 +9,13 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import FlatButton from 'material-ui/FlatButton';
 
 import ChartRenderer from './ChartRenderer';
-import ChartSwitcher from './ChartSwitcher';
 import Slider from './Slider';
 import LabeledText from './LabeledText';
 import LayoutManager from './LayoutManager';
 
-const pageTitleStyle = {
+/*const pageTitleStyle = {
     fontFamily:"PT Sans Narrow"
-};
+};*/
 
 const chart = {
     paddingBottom: '30px',
@@ -30,7 +29,7 @@ const chartStyle = {
 
 const chartSelectedStyle = {
     margin: '10px',
-    border: '2px solid #4CAF50'
+    border: '2px solid rgba(76,175, 80, 0.5)'
 };
 
 const sliderStyle = {
@@ -48,6 +47,19 @@ const headerStyle = {
     flexDirection: 'row',
     margin: '0 10px 10px 10px'
 };
+
+const pageTitleStyle = {
+    fontSize: '25px',
+    fontFamily: 'Conv_Galano Grotesque DEMO Bold',
+    background: 'linear-gradient(80deg, #EF4E7B,#A166AB)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent'
+};
+
+const fontStyle =
+    '-apple-system,BlinkMacSystemFont,"Segoe UI",' +
+    'Helvetica,Arial,sans-serif,"Apple Color Emoji",' +
+    '"Segoe UI Emoji","Segoe UI Symbol"';
 
 class AnswerSteps extends Component {
     constructor(props) {
@@ -117,15 +129,18 @@ class AnswerSteps extends Component {
                     <div style={footerStyle}>
                         <div className='title'
                              style={pageTitleStyle}>Get your turn by turn recommendations</div>
-                        <FlatButton label="HERE" primary={true} style={{marginTop: '7px'}}
+                        <FlatButton label="HERE" primary={true} style={{marginTop: '11px'}}
+                                    labelStyle={{fontFamily: fontStyle, color: '#1098AD'}}
                                     onClick={() =>
                         this.props.ownProps.router.push('/answer-steps')}/>
                     </div>
                     <FlatButton className="next" label="NEXT" primary={true}
+                                labelStyle={{fontFamily: fontStyle, color: '#1098AD'}}
                                 onClick={() =>
                         this.props.ownProps.router.push('/answer-steps')}/>
                     <FlatButton className="prev" label="PREVIOUS" primary={true}
-                            onClick={() =>
+                                labelStyle={{fontFamily: fontStyle, color: '#1098AD'}}
+                                onClick={() =>
                         this.props.ownProps.router.push('/facts')}/>
                 </div>
             </div>

@@ -46,11 +46,13 @@ const initialState = [
                     type:'line',
                     stack: '总量',
                     areaStyle: {normal: {
-                        color: '#cdd422'
+                        //color: '#cdd422'
+                        color: '#F79533'
                     }},
                     itemStyle: {
                         normal: {
-                            color: '#cdd422'
+                            //color: '#cdd422'
+                            color: '#F79533'
                         }
                     },
                     data:[120, 132, 101, 134, 90, 230, 210]
@@ -60,13 +62,14 @@ const initialState = [
                     type:'line',
                     stack: '总量',
                     areaStyle: {normal: {
-                        color: '#e05915'
+                        //color: '#e05915'
+                        color: '#A166AB'
                     }},
                     itemStyle: {
                         normal: {
-                            color: '#e05915'
-                        }
-                    },
+                            //color: '#e05915'
+                            color: '#A166AB'
+                    }},
                     data:[220, 182, 191, 234, 290, 330, 310]
                 },
                 {
@@ -74,11 +77,13 @@ const initialState = [
                     type:'line',
                     stack: '总量',
                     areaStyle: {normal: {
-                        color: '#431c5d'
+                        //color: '#431c5d'
+                        color: '#1098AD'
                     }},
                     itemStyle: {
                         normal: {
-                            color: '#431c5d'
+                            //color: '#431c5d'
+                            color: '#1098AD'
                         }
                     },
                     data:[150, 232, 201, 154, 190, 330, 410]
@@ -119,19 +124,18 @@ const initialState = [
                 }
             ]
         },
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         facts: [
             {
                 id: 1,
                 category: 'numeric',
-                mainText: '36%',
-                text: 'of men run a half marathon faster than 1:45'
+                mainText: '36',
+                text: '% of men run a half marathon faster than 1:45'
             },
             {
                 id: 2,
                 category: 'numeric',
-                mainText: '11%',
-                text: 'of women complete a half marathon in under 1:45'
+                mainText: '11',
+                text: '% of women complete a half marathon in under 1:45'
             },
             {
                 id: 3,
@@ -196,7 +200,7 @@ const initialState = [
                     symbolSize: 3,
                     itemStyle: {
                         normal: {
-                            color: '#bccbde'
+                            color: '#1098AD'
                         }
                     },
                     data: (function () {
@@ -222,7 +226,7 @@ const initialState = [
                     symbolSize: 2,
                     itemStyle: {
                         normal: {
-                            color: '#431c5d'
+                            color: '#A166AB'
                         }
                     },
                     data: (function () {
@@ -243,7 +247,6 @@ const initialState = [
                 }
             ]
         },
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         facts: [
             {
                 id: 1,
@@ -296,7 +299,7 @@ const initialState = [
                     stack: '总量',
                     itemStyle: {
                         normal: {
-                            color: '#cdd422'
+                            color: '#F79533'
                         }
                     },
                     data:[120, 132, 101, 134, 90, 230, 210]
@@ -307,7 +310,7 @@ const initialState = [
                     stack: '总量',
                     itemStyle: {
                         normal: {
-                            color: '#e05915'
+                            color: '#A166AB'
                         }
                     },
                     data:[220, 182, 191, 234, 290, 330, 310]
@@ -318,7 +321,7 @@ const initialState = [
                     stack: '总量',
                     itemStyle: {
                         normal: {
-                            color: '#431c5d'
+                            color: '#1098AD'
                         }
                     },
                     data:[150, 232, 201, 154, 190, 330, 410]
@@ -347,13 +350,12 @@ const initialState = [
                 }
             ]
         },
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         facts: [
             {
                 id: 1,
                 category: 'numeric',
-                mainText: '20%',
-                text: 'of weekly mileage is spent on runs of 10 miles or more'
+                mainText: '20',
+                text: '% of weekly mileage is spent on runs of 10 miles or more'
             },
             {
                 id: 2,
@@ -369,7 +371,7 @@ const initialState = [
             }
         ]
     },
-    /*{
+    {
         id: 4,
         data: {
             tooltip : {
@@ -408,7 +410,7 @@ const initialState = [
                     },
                     itemStyle: {
                         normal: {
-                            color: '#cdd422'
+                            color: '#F79533'
                         }
                     },
                     data: [320, 302, 301, 334, 390, 330, 320]
@@ -425,7 +427,7 @@ const initialState = [
                     },
                     itemStyle: {
                         normal: {
-                            color: '#e05915'
+                            color: '#A166AB'
                         }
                     },
                     data: [120, 132, 101, 134, 90, 230, 210]
@@ -442,7 +444,7 @@ const initialState = [
                     },
                     itemStyle: {
                         normal: {
-                            color: '#431c5d'
+                            color: '#1098AD'
                         }
                     },
                     data: [220, 182, 191, 234, 290, 330, 310]
@@ -483,7 +485,28 @@ const initialState = [
                 }
             ]
         },
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        facts: [
+            {
+                id: 1,
+                category: 'peak',
+                text: 'Marathoners mileage peaks 4 weeks prior to race day'
+            },
+            {
+                id: 2,
+                category: 'finisher',
+                text: 'Almost every finisher continues running the week after their race'
+            },
+            {
+                id: 3,
+                category: 'time',
+                text: 'Maraphoners taper significantly in the weeks leading up to the race'
+            },
+            {
+                id: 4,
+                category: 'finish',
+                text: 'Most runs significantly less miles than their weekly average after their race'
+            }
+        ]
     },
     {
         id: 5,
@@ -501,7 +524,7 @@ const initialState = [
                 type: 'bar',
                 itemStyle: {
                     normal: {
-                        color: '#cdd422'
+                        color: '#F79533'
                     }
                 },
                 data: [1, 2, 3, 4, 3, 5, 1],
@@ -512,7 +535,7 @@ const initialState = [
                 type: 'bar',
                 itemStyle: {
                     normal: {
-                        color: '#e05915'
+                        color: '#A166AB'
                     }
                 },
                 data: [2, 4, 6, 1, 3, 2, 1],
@@ -523,7 +546,7 @@ const initialState = [
                 type: 'bar',
                 itemStyle: {
                     normal: {
-                        color: '#431c5d'
+                        color: '#1098AD'
                     }
                 },
                 data: [1, 2, 3, 4, 1, 2, 5],
@@ -532,8 +555,29 @@ const initialState = [
                 stack: 'a'
             }]
         },
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    }*/
+        facts: [
+            {
+                id: 1,
+                category: 'peak',
+                text: 'Half marathoners don\'t peak and taper much in the weeks leading up to their race'
+            },
+            {
+                id: 2,
+                category: 'finisher',
+                text: 'Almost every finisher continues running the week after their race'
+            },
+            {
+                id: 3,
+                category: 'time',
+                text: 'Their mileage stay consistent week to week'
+            },
+            {
+                id: 4,
+                category: 'finish',
+                text: 'Most run slightly more miles than their weekly average in the 12 week leading up to the race'
+            }
+        ]
+    }
 ];
 
 export default function turnsList(state = initialState, action) {

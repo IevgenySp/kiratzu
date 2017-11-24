@@ -6,22 +6,15 @@ import React, { Component } from 'react';
 
 import TimeIcon from 'material-ui/svg-icons/device/access-time';
 import WomanIcon from 'material-ui/svg-icons/action/face';
+import PeakIcon from 'material-ui/svg-icons/image/filter-hdr';
+import FinisherIcon from 'material-ui/svg-icons/maps/directions-run';
+import FinishIcon from 'material-ui/svg-icons/maps/add-location';
 
 const colors = ['#bccbde', '#c2dde6', '#e6e9f0', '#431c5d', '#e05915', '#cdd422'];
 
 const textFormStyle = {
     display: 'flex',
-    flexDirection: 'row',
-    //borderBottom: '3px solid #bccbde'
-};
-
-const numericIconStyle = {
-    fontSize: '36px',
-    fontWeight: 'bold',
-    padding: '5px 10px 0 0',
-    //color: colors[Math.floor(Math.random() * colors.length)]
-    color: colors[5],
-    whiteSpace: 'nowrap'
+    flexDirection: 'row'
 };
 
 const timeIconStyle = {
@@ -49,14 +42,22 @@ class LabeledText extends Component {
         
         switch(category) {
             case 'numeric':
-                icon = <div style={numericIconStyle}
-                            className="numericIcon">{this.props.mainText}</div>;
+                icon = <div className="numericIcon">{this.props.mainText}</div>;
                 break;
             case 'time':
-                icon = <TimeIcon style={timeIconStyle} />;
+                icon = <div className="imageIcon timeIcon"><TimeIcon /></div>;
                 break;
             case 'woman':
-                icon = <WomanIcon  style={womanIconStyle}/>
+                icon = <div className="imageIcon womanIcon"><WomanIcon /></div>;
+                break;
+            case 'peak':
+                icon = <div className="imageIcon peakIcon"><PeakIcon /></div>;
+                break;
+            case 'finisher':
+                icon = <div className="imageIcon finisherIcon"><FinisherIcon /></div>;
+                break;
+            case 'finish':
+                icon = <div className="imageIcon finishIcon"><FinishIcon /></div>;
 
         }
         

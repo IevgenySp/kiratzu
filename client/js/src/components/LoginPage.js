@@ -28,6 +28,28 @@ const loginButtonStyle = {
     marginTop: '15px'
 };
 
+const loginTitleStyle = {
+    fontSize: '20px',
+    fontFamily: 'Conv_Galano Grotesque DEMO Bold',
+    background: 'linear-gradient(80deg, #EF4E7B,#A166AB)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    margin: '10px 0 0 0'
+};
+
+const fontStyle =
+    '-apple-system,BlinkMacSystemFont,"Segoe UI",' +
+    'Helvetica,Arial,sans-serif,"Apple Color Emoji",' +
+    '"Segoe UI Emoji","Segoe UI Symbol"';
+
+const underlineStyle = {
+    borderBottom: '2px solid #1098AD'
+};
+
+const colorStyle = {
+    color: '#1098AD'
+};
+
 class LoginPage extends Component {
     constructor(props) {
         super(props);
@@ -74,13 +96,16 @@ class LoginPage extends Component {
         return (
             <form onSubmit={this.onSubmit}>
                 <div style={formStyle}>
-                    <div style={pageTitleStyle}>Login</div>
+                    <div style={loginTitleStyle}>Login</div>
 
                     { errors.form && <div className="loginAlert">{errors.form}</div> }
 
                     <div><TextField
                         name="identifier"
                         floatingLabelText="Username / Email"
+                        floatingLabelStyle={{fontFamily: fontStyle}}
+                        floatingLabelFocusStyle={colorStyle}
+                        underlineFocusStyle={underlineStyle}
                         value={identifier}
                         errorText={errors.identifier}
                         onChange={this.onChange}
@@ -88,6 +113,9 @@ class LoginPage extends Component {
                     <div><TextField
                         name="password"
                         floatingLabelText="Password"
+                        floatingLabelStyle={{fontFamily: fontStyle}}
+                        floatingLabelFocusStyle={colorStyle}
+                        underlineFocusStyle={underlineStyle}
                         value={password}
                         errorText={errors.password}
                         onChange={this.onChange}
@@ -96,6 +124,7 @@ class LoginPage extends Component {
                     <FlatButton
                         className="login"
                         label="Login"
+                        labelStyle={{fontFamily: fontStyle, color: '#1098AD'}}
                         primary={true}
                         disabled={isLoading}
                         type="submit"

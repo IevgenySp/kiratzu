@@ -7,13 +7,11 @@ import React, { Component } from 'react';
 const rowStyle = {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center'
 };
 
 const columnStyle = {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center'
 };
 
 class LayoutManager extends Component {

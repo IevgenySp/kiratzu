@@ -20,7 +20,8 @@ const style = {
 const factStyle = {
     flex: 1,
     padding: '15px',
-    margin: '10px'
+    margin: '10px',
+    background: 'linear-gradient(to bottom, #5073B8,#1098AD)'
 };
 
 const progressStyle = {
@@ -28,11 +29,25 @@ const progressStyle = {
     width: '100%',
     position: 'absolute',
     top: 0,
+    background: 'linear-gradient(to bottom, #5073B8,#1098AD)'
 };
 
 const pageTytleStyle = {
     fontFamily: "PT Sans Narrow"
 };
+
+const pageTitleStyle = {
+    fontSize: '25px',
+    fontFamily: 'Conv_Galano Grotesque DEMO Bold',
+    background: 'linear-gradient(80deg, #EF4E7B,#A166AB)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent'
+};
+
+const fontStyle =
+    '-apple-system,BlinkMacSystemFont,"Segoe UI",' +
+    'Helvetica,Arial,sans-serif,"Apple Color Emoji",' +
+    '"Segoe UI Emoji","Segoe UI Symbol"';
 
 class Facts extends Component {
     constructor(props) {
@@ -50,7 +65,7 @@ class Facts extends Component {
 
         const facts = this.props.facts.slice(0, 3).map(fact =>
             <Paper zDepth={1} rounded={false} key={fact.id} style={factStyle}>
-                <div>{fact.fact}</div>
+                <div className="funnyFactStyle">{fact.fact}</div>
             </Paper>);
 
         progressStyle.opacity = this.props.file.progress >= 100 ? 0 : 1;
@@ -60,15 +75,17 @@ class Facts extends Component {
                 <LinearProgress className="upload-progress" mode="determinate"
                                 value={this.props.file.progress}
                                 style={progressStyle}/>
-                <div className='page-title' style={pageTytleStyle}>Fun facts
+                <div className='page-title' style={pageTitleStyle}>Fun facts
                     about you, your industry, your
                     hobbies
                 </div>
                 <div style={style}>{facts}</div>
                 <FlatButton className="next" label="NEXT" primary={true}
+                            labelStyle={{fontFamily: fontStyle, color: '#1098AD'}}
                             onClick={() =>
                     this.props.ownProps.router.push('/answer')}/>
                 <FlatButton className="prev" label="PREVIOUS" primary={true}
+                            labelStyle={{fontFamily: fontStyle, color: '#1098AD'}}
                             onClick={() =>
                     this.props.ownProps.router.push('/file-upload')}/>
             </div>

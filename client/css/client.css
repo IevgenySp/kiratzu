@@ -11,7 +11,6 @@ html, body {
     height: 100%;
     padding: 0;
     margin: 0;
-    background: rgba(0, 0, 0, 0.009);
 }
 
 .application {
@@ -158,11 +157,122 @@ html, body {
 }
 
 .answerSlide:hover {
-    border: 2px solid #4CAF50;
+    border: 2px solid rgba(76, 175, 80, 0.5);
 }
 
 canvas{
     position: absolute;
     top:0;
     left: 0;
+}
+
+.numericIcon{
+    font-family: "PT Sans Narrow";
+}
+
+.numericIcon{
+    width:60px;
+    transform: scale(0.85) translate(5px, -8px);
+}
+
+.factText {
+    /*font-family: "PT Sans Narrow";*/
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI", Helvetica,Arial,sans-serif,"Apple Color Emoji", "Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+}
+
+.leftSliderButton>button,
+.rightSliderButton>button{
+
+}
+
+.loginFormInactive {
+    background-color: rgba(255,255,255,1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    padding: 0 10px 0 10px;
+    position: absolute;
+    right: 100px;
+    top: 10px;
+    z-index: 2;
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+.loginFormActive {
+    background-color: rgba(255,255,255,1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    padding: 0 10px 0 10px;
+    position: absolute;
+    right: 100px;
+    top: 10px;
+    z-index: 2;
+    display: block;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.questionnarieAskBackground {
+    font-size: 180px;
+    line-height: 180px;
+    font-family: Conv_Galano Grotesque DEMO Bold;
+    background: rgba(232, 232, 232, 0.3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: rotate(-90deg);
+    position: absolute;
+    left: 0
+}
+
+.funnyFactStyle {
+    color: #ffffff;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI", Helvetica,Arial,sans-serif,"Apple Color Emoji", "Segoe UI Emoji","Segoe UI Symbol";
+}
+
+.leftSliderButton > button {
+    background: linear-gradient(80deg, #5073B8,#1098AD);
+}
+
+.rightSliderButton > button {
+    background: linear-gradient(-80deg, #5073B8,#1098AD);
+}
+
+/* Icons */
+
+.numericIcon {
+    font-size: 36px;
+    font-weight: bold;
+    padding: 5px 10px 0 0;
+    color: #cdd422;
+    white-space: nowrap;
+    font-family: Conv_Galano Grotesque DEMO Bold;
+    background: linear-gradient(80deg, #cdd422,#e7ef72);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.imageIcon > svg {
+    width: 46px !important;
+    height: 46px !important;
+    padding: 0 10px 0 0 !important;
+}
+
+.timeIcon > svg {
+    color: #c2dde6 !important;
+}
+
+.womanIcon > svg {
+    color: #bccbde !important;
+}
+
+.peakIcon > svg {
+    color: #F79533 !important;
+}
+
+.finisherIcon > svg {
+    color: #A166AB !important;
+}
+
+.finishIcon > svg {
+    color: #1098AD !important;
 }

@@ -99,10 +99,18 @@ class Slider extends Component {
                 <div className="sliderContainer" style={sliderContainer}>
                     {this.props.children}
                 </div>
-                <FloatingActionButton mini={true} style={leftButton} onClick={this.shiftRight.bind(this)}>
+                <FloatingActionButton
+                    className="leftSliderButton"
+                    mini={true}
+                    style={leftButton}
+                    onClick={this.shiftRight.bind(this)}>
                     <NavigateBefore/>
                 </FloatingActionButton>
-                <FloatingActionButton mini={true} style={rightButton} onClick={this.shiftLeft.bind(this)}>
+                <FloatingActionButton 
+                    className="rightSliderButton"
+                    mini={true} 
+                    style={rightButton} 
+                    onClick={this.shiftLeft.bind(this)}>
                     <NavigateNext/>
                 </FloatingActionButton>
             </div>

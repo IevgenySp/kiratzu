@@ -15,31 +15,6 @@ const loginStyle = {
     right: 0
 };
 
-let loginFormStyle = {
-    backgroundColor: 'rgba(255,255,255,1)',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
-    padding: '0 10px 0 10px',
-    position: 'absolute',
-    right: 100,
-    top: 10,
-    zIndex: 2,
-    display: 'none',
-    opacity: 0,
-    transition: 'opacity 1s ease-out'
-};
-
-const askBackgroundStyle = {
-    fontSize: '180px',
-    lineHeight: '180px',
-    fontFamily: 'Conv_Galano Grotesque DEMO Bold',
-    background: 'rgba(232, 232, 232, 0.3)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    transform: 'rotate(-90deg)',
-    position: 'absolute',
-    left: 0
-};
-
 const askStyle = {
     fontSize: '35px',
     fontFamily: 'Conv_Galano Grotesque DEMO Bold',
@@ -52,6 +27,14 @@ const fontStyle =
     '-apple-system,BlinkMacSystemFont,"Segoe UI",' +
     'Helvetica,Arial,sans-serif,"Apple Color Emoji",' +
     '"Segoe UI Emoji","Segoe UI Symbol"';
+
+const underlineStyle = {
+    borderBottom: '2px solid #1098AD'
+};
+
+const colorStyle = {
+    color: '#1098AD'
+};
 
 class Questionnaire extends Component {
     constructor(props) {
@@ -84,22 +67,14 @@ class Questionnaire extends Component {
     }
 
     showLoginPage() {
-        if (this.state.loginShown) {
-            loginFormStyle = Object.assign({}, loginFormStyle);
-            loginFormStyle.display = 'none';
-            loginFormStyle.opacity = 0;
-        } else {
-            loginFormStyle = Object.assign({}, loginFormStyle);
-            loginFormStyle.display = 'block';
-            loginFormStyle.opacity = 1;
-        }
-
         this.setState({loginShown: !this.state.loginShown});
     }
     
     render() {
-        //console.log(this.props.ownProps);
         this.listData = {};
+
+        let loginFormStyle = this.state.loginShown ?
+            'loginFormActive' : 'loginFormInactive';
 
         return (
             <div className="questionnaire">
@@ -109,18 +84,17 @@ class Questionnaire extends Component {
                     primary={true}
                     style={loginStyle}
                     labelStyle={{fontFamily: fontStyle, color: '#1098AD'}}
-                    onClick={/*() =>
-                            this.props.ownProps.router.push('/login')*/ this.showLoginPage.bind(this)}
+                    onClick={this.showLoginPage.bind(this)}
                 />
-                <div style={loginFormStyle} className="loginPage">
+                <div className={loginFormStyle}>
                     <LoginPage />
                 </div>
-                <div style={askBackgroundStyle}>Ask</div>
+                <div className="questionnarieAskBackground">Ask</div>
                 <AutoComplete style={{width:'80%', fontSize: '100px'}} className="question"
                                   hintText="Ask ..." dataSource={[]}
                                   hintStyle={askStyle}
                                   inputStyle={{fontFamily: fontStyle, fontSize: '20px'}}
-                                  underlineFocusStyle={{borderBottom: '2px solid #1098AD'}}
+                                  underlineFocusStyle={underlineStyle}
                                   onUpdateInput={this.updateDomainValue.bind(this)}/>
 
                     <List className="list">
@@ -134,8 +108,8 @@ class Questionnaire extends Component {
                                   <AutoComplete
                                      floatingLabelText="Your Name"
                                      floatingLabelStyle={{fontFamily: fontStyle}}
-                                     floatingLabelFocusStyle={{color: '#1098AD'}}
-                                     underlineFocusStyle={{borderBottom: '2px solid #1098AD'}}
+                                     floatingLabelFocusStyle={colorStyle}
+                                     underlineFocusStyle={underlineStyle}
                                      dataSource={[]}
                                    />
                                   </ListItem>,
@@ -144,8 +118,8 @@ class Questionnaire extends Component {
                                   <AutoComplete
                                      floatingLabelText="What do you do?"
                                      floatingLabelStyle={{fontFamily: fontStyle}}
-                                     floatingLabelFocusStyle={{color: '#1098AD'}}
-                                     underlineFocusStyle={{borderBottom: '2px solid #1098AD'}}
+                                     floatingLabelFocusStyle={colorStyle}
+                                     underlineFocusStyle={underlineStyle}
                                      dataSource={[]}
                                    />
                                   </ListItem>,
@@ -154,8 +128,8 @@ class Questionnaire extends Component {
                                   <AutoComplete
                                      floatingLabelText="Your Industry"
                                      floatingLabelStyle={{fontFamily: fontStyle}}
-                                     floatingLabelFocusStyle={{color: '#1098AD'}}
-                                     underlineFocusStyle={{borderBottom: '2px solid #1098AD'}}
+                                     floatingLabelFocusStyle={colorStyle}
+                                     underlineFocusStyle={underlineStyle}
                                      dataSource={[]}
                                    />
                                   </ListItem>,
@@ -164,8 +138,8 @@ class Questionnaire extends Component {
                                   <AutoComplete
                                      floatingLabelText="Your hobbies"
                                      floatingLabelStyle={{fontFamily: fontStyle}}
-                                     floatingLabelFocusStyle={{color: '#1098AD'}}
-                                     underlineFocusStyle={{borderBottom: '2px solid #1098AD'}}
+                                     floatingLabelFocusStyle={colorStyle}
+                                     underlineFocusStyle={underlineStyle}
                                      dataSource={[]}
                                    />
                                   </ListItem>
@@ -173,7 +147,9 @@ class Questionnaire extends Component {
                         />
 
                     </List>
-                <FlatButton labelStyle={{fontFamily: fontStyle, color: '#1098AD'}} className="next" label="NEXT" primary={true} onClick={() => {
+                <FlatButton 
+                    labelStyle={{fontFamily: fontStyle, color: '#1098AD'}} 
+                    className="next" label="NEXT" primary={true} onClick={() => {
                         this.saveData.bind(this)();
                         this.props.ownProps.router.push('/file-upload')                 
                     }} />
