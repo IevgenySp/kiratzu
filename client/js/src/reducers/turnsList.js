@@ -371,7 +371,7 @@ const initialState = [
             }
         ]
     },
-    {
+    /*{
         id: 4,
         data: {
             tooltip : {
@@ -577,7 +577,7 @@ const initialState = [
                 text: 'Most run slightly more miles than their weekly average in the 12 week leading up to the race'
             }
         ]
-    }
+    }*/
 ];
 
 export default function turnsList(state = initialState, action) {

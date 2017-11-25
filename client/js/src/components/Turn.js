@@ -28,7 +28,10 @@ const circleStyle = {
     display: 'inline-block',
     lineHeight: '30px',
     color: '#fff',
-    fontFamily:"PT Sans Narrow"
+    //fontFamily:"PT Sans Narrow"
+    fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",' +
+    'Helvetica,Arial,sans-serif,"Apple Color Emoji",' +
+    '"Segoe UI Emoji","Segoe UI Symbol"'
 };
 
 class Turn extends Component {
@@ -36,14 +39,14 @@ class Turn extends Component {
         let text;
         let layoutManager;
         let layout = this.props.layout || [2, 2];
-
+        
         text = this.props.turn.facts.map(fact => {
             return (<div key={fact.id}><LabeledText
                 category={fact.category}
                 mainText={fact.mainText || null}
                 text={fact.text} /></div>);
         });
-
+        
         layoutManager =
                 <LayoutManager layout={layout} orientation="rows" items={text} />;
 

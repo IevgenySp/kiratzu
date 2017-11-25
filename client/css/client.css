@@ -102,7 +102,21 @@ html, body {
     position: absolute;
     top: 0;
     left: 0;
-    font-size: 22px;
+    font-size: 25px;
+}
+
+.page-sub-title {
+    padding: 10px 0 10px 0;
+    margin: 40px 0 0 10px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    font-family: Conv_Galano Grotesque DEMO Bold;
+    background: linear-gradient(80deg, #5073B8,#1098AD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .title {
@@ -276,3 +290,6 @@ canvas{
 .finishIcon > svg {
     color: #1098AD !important;
 }
+
+/* Icons */
+

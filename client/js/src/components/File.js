@@ -61,13 +61,11 @@ class File extends Component {
     }
 
     render() {
-
         let fileName = this.props.file.file ? this.props.file.file : '';
 
         return (
             <div>
-                <div className='page-title' style={pageTitleStyle}>Start asking
-                    for free ...
+                <div className='page-title' style={pageTitleStyle}>Upload your data ...
                 </div>
                 <div style={style}>
                     <div className="file-upload">

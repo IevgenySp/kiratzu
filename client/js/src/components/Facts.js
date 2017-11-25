@@ -75,7 +75,9 @@ class Facts extends Component {
                 <LinearProgress className="upload-progress" mode="determinate"
                                 value={this.props.file.progress}
                                 style={progressStyle}/>
-                <div className='page-title' style={pageTitleStyle}>Fun facts
+                <div className='page-title' style={pageTitleStyle}>While we crunch your data ...
+                </div>
+                <div className='page-sub-title'>Fun facts
                     about you, your industry, your
                     hobbies
                 </div>

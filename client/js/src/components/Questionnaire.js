@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import Link from 'react-router';
 import AutoComplete from 'material-ui/AutoComplete';
 import FlatButton from 'material-ui/FlatButton';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 
 import LoginPage from './LoginPage';
 
@@ -15,18 +17,27 @@ const loginStyle = {
     right: 0
 };
 
-const askStyle = {
-    fontSize: '35px',
-    fontFamily: 'Conv_Galano Grotesque DEMO Bold',
-    background: 'linear-gradient(80deg, #EF4E7B,#A166AB)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent'
-};
-
 const fontStyle =
     '-apple-system,BlinkMacSystemFont,"Segoe UI",' +
     'Helvetica,Arial,sans-serif,"Apple Color Emoji",' +
     '"Segoe UI Emoji","Segoe UI Symbol"';
+
+const askStyle = {
+    fontSize: '25px',
+    fontFamily: 'Conv_Galano Grotesque DEMO Bold',
+    background: 'linear-gradient(80deg, #5073B8,#1098AD)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    //fontFamily: fontStyle
+};
+
+const pageTitleStyle = {
+    fontSize: '25px',
+    fontFamily: 'Conv_Galano Grotesque DEMO Bold',
+    background: 'linear-gradient(80deg, #EF4E7B,#A166AB)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+};
 
 const underlineStyle = {
     borderBottom: '2px solid #1098AD'
@@ -41,15 +52,25 @@ class Questionnaire extends Component {
         super(props);
 
         this.state = {
-            loginShown: false
+            loginShown: false,
+            domainValue: 1,
+            jobValue: null
         };
+
+        this.listData = {
+            domain: 'Running'
+        };
+    }
+
+    updateDomainValue(evt) {
+        this.listData.domain = evt.target.textContent;
     }
 
     updateInputNameValue(evt) {
         this.listData.name = evt.target.value;
     }
-    updateInputJobValue(evt) {
-        this.listData.job = evt.target.value;
+    updateJobValue(evt) {
+        this.listData.job = evt.target.textContent;
     }
     updateInputIndustryValue(evt) {
         this.listData.industry = evt.target.value;
@@ -58,8 +79,8 @@ class Questionnaire extends Component {
         this.listData.hobbie = evt.target.value;
     }
 
-    updateDomainValue(domain){
-        this.listData.domain = domain;
+    updateQuestionValue(question){
+        this.listData.question = question;
     }
 
     saveData() {
@@ -69,10 +90,16 @@ class Questionnaire extends Component {
     showLoginPage() {
         this.setState({loginShown: !this.state.loginShown});
     }
-    
-    render() {
-        this.listData = {};
 
+    handleDomainChange(event, index, value) {
+        this.setState({domainValue: value});
+    }
+
+    handleJobChange(event, index, value) {
+        this.setState({jobValue: value});
+    }
+
+    render() {
         let loginFormStyle = this.state.loginShown ?
             'loginFormActive' : 'loginFormInactive';
 
@@ -90,12 +117,14 @@ class Questionnaire extends Component {
                     <LoginPage />
                 </div>
                 <div className="questionnarieAskBackground">Ask</div>
-                <AutoComplete style={{width:'80%', fontSize: '100px'}} className="question"
+                <div className='page-title' style={pageTitleStyle}>Start asking
+                    for free</div>
+                <AutoComplete style={{width:'80%', fontSize: '100px', marginTop: '45px'}} className="question"
                                   hintText="Ask ..." dataSource={[]}
                                   hintStyle={askStyle}
                                   inputStyle={{fontFamily: fontStyle, fontSize: '20px'}}
                                   underlineFocusStyle={underlineStyle}
-                                  onUpdateInput={this.updateDomainValue.bind(this)}/>
+                                  onUpdateInput={this.updateQuestionValue.bind(this)}/>
 
                     <List className="list">
                         <ListItem primaryText="What is this data?"
@@ -103,7 +132,23 @@ class Questionnaire extends Component {
                                   primaryTogglesNestedList={false}
                                   disabled={true}
                                   nestedItems={[
-                                  <ListItem className="list-item" key={1} primaryText="" disabled={true}                              
+                                   <ListItem className="list-item" key={0} primaryText="" disabled={true}>
+                                  <SelectField
+                                  floatingLabelText="Domain"
+                                  floatingLabelStyle={{fontFamily: fontStyle}}
+                                  floatingLabelFocusStyle={colorStyle}
+                                  underlineFocusStyle={underlineStyle}
+                                  menuItemStyle={{fontFamily: fontStyle}}
+                                  value={this.state.domainValue}
+                                  onChange={(event, index, value) => {
+                                    this.handleDomainChange.bind(this, event, index, value)();
+                                    this.updateDomainValue.bind(this, event, index, value)();
+                                  }}>
+                                    <MenuItem value={1} primaryText="Running" />
+                                    <MenuItem value={2} primaryText="Swimming" />
+                                  </SelectField>
+                                  </ListItem>,
+                                  <ListItem className="list-item" key={1} primaryText="" disabled={true}
                                     onChange={this.updateInputNameValue.bind(this)}>
                                   <AutoComplete
                                      floatingLabelText="Your Name"
@@ -113,15 +158,21 @@ class Questionnaire extends Component {
                                      dataSource={[]}
                                    />
                                   </ListItem>,
-                                   <ListItem className="list-item" key={2} primaryText="" disabled={true}
-                                    onChange={this.updateInputJobValue.bind(this)}>
-                                  <AutoComplete
+                                   <ListItem className="list-item" key={2} primaryText="" disabled={true}>
+                                  <SelectField
                                      floatingLabelText="What do you do?"
                                      floatingLabelStyle={{fontFamily: fontStyle}}
                                      floatingLabelFocusStyle={colorStyle}
                                      underlineFocusStyle={underlineStyle}
-                                     dataSource={[]}
-                                   />
+                                     menuItemStyle={{fontFamily: fontStyle}}
+                                     value={this.state.jobValue}
+                                     onChange={(event, index, value) => {
+                                        this.handleJobChange.bind(this, event, index, value)();
+                                        this.updateJobValue.bind(this, event, index, value)();
+                                     }}>
+                                        <MenuItem value={1} primaryText="Accounting" />
+                                        <MenuItem value={2} primaryText="Python developer" />
+                                   </SelectField>
                                   </ListItem>,
                                     <ListItem className="list-item" key={3} primaryText="" disabled={true}
                                      onChange={this.updateInputIndustryValue.bind(this)}>
