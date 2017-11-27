@@ -29,7 +29,7 @@ const fontStyle =
 
 class AnswerSteps extends Component {
     render() {
-        const layouts = [[2,2], [1,4], [1,3], [2,2]]; //Items layouts for layout amager
+        const layouts = [[1,4], [1,4], [1,3], [2,2]]; //Items layouts for layout amager
         const turns = this.props.turns.map((turn, index) =>
             <div key={turn.id}><Turn turn={turn} layout={layouts[index]}/></div>);
 
