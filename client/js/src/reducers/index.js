@@ -6,6 +6,7 @@ import file from './file';
 import questionnaire from './questionnaire';
 import turnsList from './turnsList';
 import socket from './socket';
+import suggestedQuestions from './suggestedQuestions';
 
 export default combineReducers({
     routing: routerReducer,
@@ -13,5 +14,6 @@ export default combineReducers({
     facts,
     file,
     questionnaire,
-    turnsList
+    turnsList,
+    suggestedQuestions
 });

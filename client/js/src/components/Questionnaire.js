@@ -31,14 +31,6 @@ const askStyle = {
     //fontFamily: fontStyle
 };
 
-const pageTitleStyle = {
-    fontSize: '25px',
-    fontFamily: 'Conv_Galano Grotesque DEMO Bold',
-    background: 'linear-gradient(80deg, #EF4E7B,#A166AB)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-};
-
 const underlineStyle = {
     borderBottom: '2px solid #1098AD'
 };
@@ -117,7 +109,7 @@ class Questionnaire extends Component {
                     <LoginPage />
                 </div>
                 <div className="questionnarieAskBackground">Ask</div>
-                <div className='page-title' style={pageTitleStyle}>Start asking
+                <div className='page-title'>Start asking
                     for free</div>
                 <AutoComplete style={{width:'80%', fontSize: '100px', marginTop: '45px'}} className="question"
                                   hintText="Ask ..." dataSource={[]}

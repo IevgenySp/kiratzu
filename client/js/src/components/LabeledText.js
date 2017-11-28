@@ -10,25 +10,9 @@ import PeakIcon from 'material-ui/svg-icons/image/filter-hdr';
 import FinisherIcon from 'material-ui/svg-icons/maps/directions-run';
 import FinishIcon from 'material-ui/svg-icons/maps/add-location';
 
-const colors = ['#bccbde', '#c2dde6', '#e6e9f0', '#431c5d', '#e05915', '#cdd422'];
-
 const textFormStyle = {
     display: 'flex',
     flexDirection: 'row'
-};
-
-const timeIconStyle = {
-    width: '46px',
-    height: '46px',
-    color: colors[1],
-    padding: '0 10px 0 0'
-};
-
-const womanIconStyle = {
-    width: '46px',
-    height: '46px',
-    color: colors[0],
-    padding: '0 10px 0 0'
 };
 
 const textStyle = {

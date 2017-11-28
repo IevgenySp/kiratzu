@@ -32,18 +32,6 @@ const progressStyle = {
     background: 'linear-gradient(to bottom, #5073B8,#1098AD)'
 };
 
-const pageTytleStyle = {
-    fontFamily: "PT Sans Narrow"
-};
-
-const pageTitleStyle = {
-    fontSize: '25px',
-    fontFamily: 'Conv_Galano Grotesque DEMO Bold',
-    background: 'linear-gradient(80deg, #EF4E7B,#A166AB)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent'
-};
-
 const fontStyle =
     '-apple-system,BlinkMacSystemFont,"Segoe UI",' +
     'Helvetica,Arial,sans-serif,"Apple Color Emoji",' +
@@ -75,7 +63,7 @@ class Facts extends Component {
                 <LinearProgress className="upload-progress" mode="determinate"
                                 value={this.props.file.progress}
                                 style={progressStyle}/>
-                <div className='page-title' style={pageTitleStyle}>While we crunch your data ...
+                <div className='page-title'>While we crunch your data ...
                 </div>
                 <div className='page-sub-title'>Fun facts
                     about you, your industry, your

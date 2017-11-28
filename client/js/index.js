@@ -17,6 +17,8 @@ import Answer from './src/components/Answer';
 import AnswerSteps from './src/components/AnswerSteps';
 import Application from './src/components/Application';
 import LoginPage from './src/components/LoginPage';
+import PdfExport from './src/components/PdfExport';
+import SuggestedQuestions from './src/components/SuggestedQuestions';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 const history = syncHistoryWithStore(hashHistory, store);
@@ -33,6 +35,8 @@ render(
                 <Route path="/answer" component={Answer}/>
                 <Route path="/answer-steps" component={AnswerSteps}/>
                 <Route path="/login" component={LoginPage}/>
+                <Route path="/pdf-export" component={PdfExport}/>
+                <Route path="/suggested-questions" component={SuggestedQuestions}/>
 
             </Router>
         </Application>

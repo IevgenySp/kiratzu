@@ -10,18 +10,6 @@ import FlatButton from 'material-ui/FlatButton';
 
 import Turn from './Turn';
 
-/*const pageTitleStyle = {
-    fontFamily:"PT Sans Narrow"
-};*/
-
-const pageTitleStyle = {
-    fontSize: '25px',
-    fontFamily: 'Conv_Galano Grotesque DEMO Bold',
-    background: 'linear-gradient(80deg, #EF4E7B,#A166AB)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent'
-};
-
 const fontStyle =
     '-apple-system,BlinkMacSystemFont,"Segoe UI",' +
     'Helvetica,Arial,sans-serif,"Apple Color Emoji",' +
@@ -35,14 +23,17 @@ class AnswerSteps extends Component {
 
         return (
             <div className="charts">
-                <div className='page-title' style={pageTitleStyle}>The answer turn by turn:</div>
+                <div className='page-title'>The answer turn by turn:</div>
                 {turns}
                 <FlatButton className="export-pdf" label="Export to PDF"
                             labelStyle={{fontFamily: fontStyle, color: '#1098AD'}}
-                            primary={true}/>
+                            primary={true}
+                            onClick={() =>
+                    this.props.ownProps.router.push('/pdf-export')}/>
                 <FlatButton className="next" label="NEXT" primary={true}
                             labelStyle={{fontFamily: fontStyle, color: '#1098AD'}}
-                            onClick={() => false}/>
+                            onClick={() => 
+                            this.props.ownProps.router.push('/suggested-questions')}/>
                 <FlatButton className="prev" label="PREVIOUS" primary={true}
                             labelStyle={{fontFamily: fontStyle, color: '#1098AD'}}
                             onClick={() =>

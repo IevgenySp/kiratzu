@@ -12,14 +12,6 @@ const style = {
     margin: '0 10px 0 10px'
 };
 
-const pageTitleStyle = {
-    fontSize: '25px',
-    fontFamily: 'Conv_Galano Grotesque DEMO Bold',
-    background: 'linear-gradient(80deg, #EF4E7B,#A166AB)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-};
-
 const fontStyle =
     '-apple-system,BlinkMacSystemFont,"Segoe UI",' +
     'Helvetica,Arial,sans-serif,"Apple Color Emoji",' +
@@ -65,7 +57,7 @@ class File extends Component {
 
         return (
             <div>
-                <div className='page-title' style={pageTitleStyle}>Upload your data ...
+                <div className='page-title'>Upload your data ...
                 </div>
                 <div style={style}>
                     <div className="file-upload">

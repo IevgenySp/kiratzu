@@ -109,6 +109,10 @@ html, body {
     top: 0;
     left: 0;
     font-size: 25px;
+    font-family: Conv_Galano Grotesque DEMO Bold;
+    background: linear-gradient(80deg, #EF4E7B,#A166AB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .page-sub-title {
