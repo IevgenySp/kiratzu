@@ -303,3 +303,7 @@ canvas{
 
 /* Icons */
 
+.mapStyle > div {
+    position: relative !important;
+}
+

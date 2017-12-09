@@ -117,7 +117,7 @@ class Questionnaire extends Component {
                                   inputStyle={{fontFamily: fontStyle, fontSize: '20px'}}
                                   underlineFocusStyle={underlineStyle}
                                   onUpdateInput={this.updateQuestionValue.bind(this)}/>
-
+                    <div style={{fontSize: '12px', color: '#ccc'}}>ex. Boston marathon best time</div>
                     <List className="list">
                         <ListItem primaryText="What is this data?"
                                   innerDivStyle={{fontFamily: fontStyle}}

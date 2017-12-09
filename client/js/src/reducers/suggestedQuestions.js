@@ -2,7 +2,7 @@
  * Created by isp on 11/27/17.
  */
 
-const initialState = [
+/*const initialState = [
     {
         id: 1,
         question: 'How many runners are in the Chicago Marathon?'
@@ -19,11 +19,20 @@ const initialState = [
         id: 4,
         question: 'How long is the Chicago Marathon?'
     }
-];
+];*/
+
+const initialState = [];
 
 export default function suggestedQuestions(state = initialState, action){
     if (action.type === 'ADD_QUESTION') {
-        return action.payload;
+        let questions = action.payload.map((question, index) => {
+            return {
+                id: index + 1,
+                question: question
+            }
+        });
+
+        return questions;
     }
     return state;
 }
